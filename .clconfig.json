@@ -1,0 +1,15 @@
+{
+  "categories": [
+    "all",
+    "cli",
+    "llm"
+  ],
+  "change_types": {
+    "Bug Fixes": "bug\\s*fixes",
+    "Features": "features",
+    "Improvements": "improvements"
+  },
+  "expected_spellings": {},
+  "legacy_version": null,
+  "target_repo": ""
+}
