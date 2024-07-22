@@ -11,6 +11,8 @@ import os
 from openai import OpenAI
 
 
+# This prompt provides some context to the LLM for the
+# desired regular expression derivation.
 CONTEXT_PROMPT = """
 You are an AI assistant, that can be used to generate
 regular expression patterns, based on a given input.
@@ -24,12 +26,22 @@ Remember, that the purpose of your interactions is to generate
 regex patterns, so the only required output is the generated pattern itself.
 """
 
+INPUT_PROMPT = """cre | 2024
+
+This helper builds regular expressions based on any text provided.
+The resulting pattern will be generated with generalized whitespace,
+special characters and numbers.
+Additionally, the resulting pattern will be case-insensitive.
+
+Please provide the input material to match:
+"""
+
 
 def run():
     """
     The main method to run the tool.
     """
-    user_prompt = "test123; hallo"
+    user_prompt = input(INPUT_PROMPT)
 
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key or "sk-" not in api_key[:3]:
